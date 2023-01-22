@@ -39,10 +39,48 @@ const nesArr = [
     isMale : true},
     {    name : "anandhan",
     age : 48,
-    isMale : true}
+    isMale : true,
+    stack : ["angular", "react"]
+}
 ]
 
 console.log(nesArr[0])
 console.log(nesArr[0].name)
 console.log(nesArr[1].name)
 console.log(nesArr)
+console.log(nesArr[1].stack[1])
+
+
+// copy by value and copy by reference
+
+// copy by value
+var a = 10, b = a, b = 20;
+console.log(a,b);
+
+//copy by reference
+const obja = {value : 10}, objb = obja;
+console.log("obja = ", obja, "objb = ", objb)
+objb.value = 20;
+console.log("obja = ", obja, "objb = ", objb)
+
+// windows and document objects
+// js = (key : value)
+// window property
+console.log(window)
+// document property
+console.log(window.document)
+console.log(document)
+
+
+// XMLHttpRequest
+
+var a = new XMLHttpRequest();
+a.open("get","https://restcountries.com/v3.1/all")
+a.send();
+a.onload = function(){
+    var b = a.response
+    var c = JSON.parse(b)
+    for(var obj of c){
+        console.log(obj.name.common)
+    }
+}
